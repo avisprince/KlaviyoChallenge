@@ -1,0 +1,21 @@
+#editTextArea {
+    padding: 0 15px;
+}
+
+#editTextArea > textarea {
+    height: 200px;
+    font-size: 14px;
+}
+
+#textButtons {
+    margin-bottom: 10px;
+}
+
+.textButtonGroup {
+    margin-right: 10px;
+}
+
+#comingSoon {
+    padding: 15px;
+    font-size: 14px;
+}

@@ -1,0 +1,26 @@
+#templateBuilderContainer {
+    height: 100%;
+}
+
+.toolPicker {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    margin: 15px 10px;
+    text-align: center;
+    line-height: 100px;
+    color: #eee;
+    background-color: #aaa;
+    cursor: pointer;
+}
+
+#leftCol {
+    height: 100%;
+    width: 380px;
+    padding-left: 15px;
+}
+
+#rightCol {
+    background-color: #eee;
+    overflow-y: auto;
+}
