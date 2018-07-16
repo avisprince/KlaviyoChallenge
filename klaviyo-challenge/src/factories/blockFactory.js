@@ -65,3 +65,11 @@ export function createDividerBlock() {
         }
     }
 }
+
+export function cloneBlock(block) {
+    const id = generateId();
+    block.i = id;
+    block.y = 0;
+
+    return { [id]: block };
+}

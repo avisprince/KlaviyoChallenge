@@ -5,8 +5,7 @@ import GridLayout from 'react-grid-layout';
 import Block from './blocks/Block';
 import {templateSelector} from 'selectors/templateSelector';
 import {selectedBlockSelector} from 'selectors/selectedBlockSelector';
-import {updateTemplate} from 'actions/templateActions';
-import {selectBlock} from 'actions/blockActions';
+import {updateTemplate, selectBlock} from 'actions/templateActions';
 
 class TemplateCanvas extends Component {
     onLayoutChange(template) {

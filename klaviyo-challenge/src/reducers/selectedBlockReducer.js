@@ -1,4 +1,4 @@
-import {SELECT_BLOCK} from 'actions/blockActions';
+import {SELECT_BLOCK} from 'actions/templateActions';
 
 export const selectedBlockReducer = (state = null, action) => {
     switch (action.type) {

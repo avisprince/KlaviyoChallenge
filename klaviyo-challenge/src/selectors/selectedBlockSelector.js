@@ -4,7 +4,7 @@ export const selectedBlockSelector = createSelector(
     state => state.template,
     state => state.selectedBlock,
     (template, selectedBlockId) => {
-        if (!selectedBlockId) {
+        if (!selectedBlockId || !template[selectedBlockId]) {
             return null;
         }
         
