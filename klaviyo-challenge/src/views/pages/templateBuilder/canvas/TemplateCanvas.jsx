@@ -2,7 +2,6 @@ import './TemplateCanvas.css';
 import React, { Component } from 'react';
 import dispatchable from 'actions/dispatchable';
 import GridLayout from 'react-grid-layout';
-import Hoverable from './blocks/Hoverable';
 import Block from './blocks/Block';
 import {templateSelector} from 'selectors/templateSelector';
 import {selectedBlockSelector} from 'selectors/selectedBlockSelector';
@@ -24,11 +23,9 @@ class TemplateCanvas extends Component {
                 : "gridItem";
 
             return (
-                <Hoverable key={block.i}>
-                    <div key={block.i} className={gridItemClassName} onClick={()=>this.selectBlock(block.i)}>
-                        <Block block={block} />
-                    </div>
-                </Hoverable>
+                <div key={block.i} className={gridItemClassName} onClick={()=>this.selectBlock(block.i)}>
+                    <Block block={block} />
+                </div>
             );
         });
 
