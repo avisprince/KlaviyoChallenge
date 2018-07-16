@@ -2,23 +2,28 @@ import './ToolBox.css';
 import React, { Component } from 'react';
 import dispatchable from 'actions/dispatchable';
 import {createTextBlock, createImageBlock, createDividerBlock} from 'factories/blockFactory';
-import {addBlock} from 'actions/templateActions';
+import {addBlock, selectBlock} from 'actions/templateActions';
 import Header from './Header';
 
 class ToolBox extends Component {
     createTextBlock() {
         const block = createTextBlock();
-        this.props.dispatch(addBlock(block));
+        this.addBlock(block);
     }
     
     createImageBlock() {
         const block = createImageBlock();
-        this.props.dispatch(addBlock(block));
+        this.addBlock(block);
     }
     
     createDividerBlock() {
         const block = createDividerBlock();
+        this.addBlock(block);
+    }
+
+    addBlock(block) {
         this.props.dispatch(addBlock(block));
+        this.props.dispatch(selectBlock(Object.keys(block)[0]));
     }
 
     render() {

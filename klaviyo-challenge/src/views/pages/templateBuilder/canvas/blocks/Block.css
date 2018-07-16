@@ -3,3 +3,32 @@
     height: 100%;
     width: 100%;
 }
+
+.blockContent {
+    overflow-y: hidden;
+}
+
+.hoverMenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 20px;
+    margin-left: -20px;
+    background-color: #aaa;
+    z-index: 100;
+    border-radius: 5px;
+}
+
+.hoverMenuItem {
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}
+
+.hoverMenuDivider {
+    height: 1px;
+    width: 100%;
+    background-color: white;
+    margin: 2px 0;
+}
