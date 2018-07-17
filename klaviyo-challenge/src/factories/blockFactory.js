@@ -31,7 +31,7 @@ export function createImageBlock() {
             w: 12,
             h: 10,
             data: "Drop an image here.",
-            type: "iamge",
+            type: "image",
             style: {
                 position: 'absolute',
                 top: '10px',
