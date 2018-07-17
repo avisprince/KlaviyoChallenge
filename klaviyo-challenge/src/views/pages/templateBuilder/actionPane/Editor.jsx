@@ -3,9 +3,9 @@ import React from 'react';
 import dispatchable from 'actions/dispatchable';
 import {selectedBlockSelector} from 'selectors/selectedBlockSelector';
 import Header from './Header';
-import {Input} from 'reactstrap';
 import {updateTemplate} from 'actions/templateActions';
-import {Button, ButtonGroup, ButtonToolbar} from 'reactstrap';
+import {Button, ButtonGroup, ButtonToolbar, Input} from 'reactstrap';
+import { Col, Form, FormGroup, Label, InputGroup, InputGroupAddon } from 'reactstrap';
 
 class Editor extends React.Component {
     onTextUpdated(value) {
@@ -31,9 +31,18 @@ class Editor extends React.Component {
     render() {
         const selectedBlock = this.props.selectedBlock;
 
-        let editTextArea = <div id="comingSoon">Coming Soon!</div>;
-        if (selectedBlock.type === "text") {
-            editTextArea = (
+        if (selectedBlock.type !== "text") {
+            return (
+                <div>
+                    <Header>Editor</Header>
+                    <div id="comingSoon">Coming Soon!</div>
+                </div>
+            );
+        }
+
+        return (
+            <div>
+                <Header>Editor</Header>
                 <div id="editTextArea">
                     <ButtonToolbar id="textButtons">
                         <ButtonGroup size="sm" className="textButtonGroup">
@@ -47,15 +56,28 @@ class Editor extends React.Component {
                             <Button onClick={()=>this.updateBlock({textAlign: 'right'})} active={selectedBlock.style.textAlign === "right"}><i className="fa fa-align-right" /></Button>
                         </ButtonGroup>
                     </ButtonToolbar>
+                    <Form>
+                        <FormGroup row>
+                            <Label for="fontSize" sm={4}>Font Size</Label>
+                            <Col sm={8}>
+                                <InputGroup id="fontSizeInputGroup" size="sm">
+                                    <InputGroupAddon addonType="prepend">
+                                        <Button onClick={()=>this.updateBlock({fontSize: parseInt(selectedBlock.style.fontSize, 10)-1})}>
+                                            <i className="fa fa-minus" />
+                                        </Button>
+                                    </InputGroupAddon>
+                                    <Input type="text" id="fontSizeInput" value={selectedBlock.style.fontSize} />
+                                    <InputGroupAddon addonType="append">
+                                        <Button onClick={()=>this.updateBlock({fontSize: parseInt(selectedBlock.style.fontSize, 10)+1})}>
+                                            <i className="fa fa-plus" />
+                                        </Button>
+                                    </InputGroupAddon>
+                                </InputGroup>
+                            </Col>
+                        </FormGroup>
+                    </Form>
                     <Input type="textarea" value={selectedBlock.data} onChange={(e)=>this.onTextUpdated(e.target.value)} />
                 </div>
-            );
-        }
-
-        return (
-            <div>
-                <Header>Editor</Header>
-                {editTextArea}
             </div>
         );
     }

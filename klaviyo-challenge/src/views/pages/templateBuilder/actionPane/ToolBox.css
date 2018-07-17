@@ -1,0 +1,9 @@
+.toolPicker {
+    height: 90px;
+    width: 90px;
+    text-align: center;
+    line-height: 90px;
+    color: #eee;
+    background-color: #aaa;
+    cursor: pointer;
+}

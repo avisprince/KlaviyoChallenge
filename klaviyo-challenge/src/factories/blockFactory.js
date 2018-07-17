@@ -68,8 +68,7 @@ export function createDividerBlock() {
 
 export function cloneBlock(block) {
     const id = generateId();
-    block.i = id;
-    block.y = 0;
+    const clonedBlock = Object.assign({}, block, {i: id, y: 0});
 
-    return { [id]: block };
+    return { [id]: clonedBlock };
 }

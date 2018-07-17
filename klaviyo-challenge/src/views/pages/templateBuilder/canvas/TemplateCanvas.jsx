@@ -5,15 +5,11 @@ import GridLayout from 'react-grid-layout';
 import Block from './blocks/Block';
 import {templateSelector} from 'selectors/templateSelector';
 import {selectedBlockSelector} from 'selectors/selectedBlockSelector';
-import {updateTemplate, selectBlock} from 'actions/templateActions';
+import {updateTemplate} from 'actions/templateActions';
 
 class TemplateCanvas extends Component {
     onLayoutChange(template) {
         this.props.dispatch(updateTemplate(template));
-    }
-
-    selectBlock(blockId) {
-        this.props.dispatch(selectBlock(blockId));
     }
     
     render() {
@@ -23,7 +19,7 @@ class TemplateCanvas extends Component {
                 : "gridItem";
 
             return (
-                <div key={block.i} className={gridItemClassName} onClick={()=>this.selectBlock(block.i)}>
+                <div key={block.i} className={gridItemClassName}>
                     <Block block={block} />
                 </div>
             );

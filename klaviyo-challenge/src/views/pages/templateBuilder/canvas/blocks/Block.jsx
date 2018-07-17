@@ -1,7 +1,7 @@
 import './Block.css';
 import React, { Component } from 'react';
 import dispatchable from 'actions/dispatchable';
-import {addBlock, deleteBlock} from 'actions/templateActions';
+import {selectBlock, addBlock, deleteBlock} from 'actions/templateActions';
 import {cloneBlock} from 'factories/blockFactory';
 
 class Block extends Component {
@@ -21,13 +21,18 @@ class Block extends Component {
         this.setState({isMouseInside: false});
     }
 
+    selectBlock(blockId) {
+        this.props.dispatch(selectBlock(blockId));
+    }
+
     deleteBlock() {
         this.props.dispatch(deleteBlock(this.props.block.i));
     }
 
     cloneBlock() {
         const clonedBlock = cloneBlock(this.props.block);
-        //this.props.dispatch(addBlock(clonedBlock));
+        this.props.dispatch(addBlock(clonedBlock));
+        this.props.dispatch(selectBlock(Object.keys(clonedBlock)[0]));
     }
 
     render() {
@@ -51,7 +56,7 @@ class Block extends Component {
         return (
             <div className="block" onMouseLeave={()=>this.onMouseLeave()}>
                 {hoverMenu}
-                <div className="blockContent" style={block.style} onMouseEnter={()=>this.onMouseEnter()}>{block.data}</div>
+                <div className="blockContent" style={block.style} onMouseEnter={()=>this.onMouseEnter()} onClick={()=>this.selectBlock(block.i)}>{block.data}</div>
             </div>
         );
     }

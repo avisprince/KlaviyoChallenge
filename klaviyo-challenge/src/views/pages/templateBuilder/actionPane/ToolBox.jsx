@@ -4,6 +4,7 @@ import dispatchable from 'actions/dispatchable';
 import {createTextBlock, createImageBlock, createDividerBlock} from 'factories/blockFactory';
 import {addBlock, selectBlock} from 'actions/templateActions';
 import Header from './Header';
+import {Container, Row, Col} from 'reactstrap';
 
 class ToolBox extends Component {
     createTextBlock() {
@@ -30,9 +31,19 @@ class ToolBox extends Component {
         return (
             <div>
                 <Header>Toolbox</Header>
-                <div className="toolPicker" onClick={()=>this.createTextBlock()}>Text</div>
-                <div className="toolPicker" onClick={()=>this.createImageBlock()}>Image</div>
-                <div className="toolPicker" onClick={()=>this.createDividerBlock()}>Divider</div>
+                <Container>
+                    <Row>
+                        <Col xs={4}>
+                            <div className="toolPicker" onClick={()=>this.createTextBlock()}>Text</div>
+                        </Col>
+                        <Col xs={4}>
+                            <div className="toolPicker" onClick={()=>this.createImageBlock()}>Image</div>
+                        </Col>
+                        <Col xs={4}>
+                            <div className="toolPicker" onClick={()=>this.createDividerBlock()}>Divider</div>
+                        </Col>
+                    </Row>
+                </Container>
             </div>
         );
     }
