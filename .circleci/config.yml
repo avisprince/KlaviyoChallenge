@@ -3,5 +3,5 @@ jobs:
   build:
     steps:
       - run:
-        name: install
-        command: npm install
+          name: install
+          command: npm install
