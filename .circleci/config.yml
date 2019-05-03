@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:4.8.2
+    working_directory: ~/
     steps:
       - run:
           name: install
