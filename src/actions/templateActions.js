@@ -1,8 +1,8 @@
-export const SET_TEMPLATE = "SET-TEMPLATE";
-export const UPDATE_TEMPLATE = "UPDATE-TEMPLATE";
-export const ADD_BLOCK = "ADD-BLOCK";
-export const DELETE_BLOCK = "DELETE-BLOCK";
-export const SELECT_BLOCK = "SELECT-BLOCK";
+export const SET_TEMPLATE = "SET_TEMPLATE";
+export const UPDATE_TEMPLATE = "UPDATE_TEMPLATE";
+export const ADD_BLOCK = "ADD_BLOCK";
+export const DELETE_BLOCK = "DELETE_BLOCK";
+export const SELECT_BLOCK = "SELECT_BLOCK";
 
 export function setTemplate(template) {
     return {
