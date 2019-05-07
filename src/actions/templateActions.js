@@ -4,7 +4,6 @@ export const ADD_BLOCK = "ADD_BLOCK";
 export const DELETE_BLOCK = "DELETE_BLOCK";
 export const SELECT_BLOCK = "SELECT_BLOCK";
 
-// something for a diff
 export function setTemplate(template) {
     return {
         type: SET_TEMPLATE,
